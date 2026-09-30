@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8f0">
+  <meta name="description" content="Put two names together and see what the love calculator says. Just for fun, with a little animated romance.">
+  <title>Lovebug — a cute little love calculator</title>
+  <link rel="icon" href="./heart.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./cute.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+  <main class="love-page">
+    <header class="site-header"><a class="brand" href="./" aria-label="Lovebug home"><span aria-hidden="true">♥</span> lovebug!</a><span class="header-note">a tiny game for big crushes</span></header>
+    <section class="calculator" id="calculator" aria-labelledby="page-title">
+      <p class="eyebrow">THE CUTEST LITTLE LOVE TEST</p>
+      <h1 id="page-title">Are they a <span>match?</span></h1>
+      <p class="page-copy">Pick two names. Let the butterflies decide!</p>
+      <div class="match-stage" id="match-stage" data-mood="idle">
+        <div class="character character--boy" aria-label="A boy waiting to see his match">
+          <div class="character-name">the boy</div>
+          <svg class="character-art" viewBox="0 0 200 260" role="img" aria-label="Cute cartoon boy">
+            <ellipse class="shadow" cx="100" cy="246" rx="61" ry="10"/>
+            <g class="character-body"><path class="legs" d="M67 191h28v42a14 14 0 0 1-28 0zm39 0h28v42a14 14 0 0 1-28 0z"/><path class="shoes" d="M63 226c-4 15 0 22 17 22h17v-9c-5-8-13-13-22-13zm40 13v9h17c17 0 21-7 17-22h-12c-9 0-17 5-22 13z"/><path class="shirt" d="M62 112c-18 7-28 24-28 48v39c0 8 6 13 14 13h104c8 0 14-5 14-13v-39c0-24-10-41-28-48l-18-8H80z"/><path class="neck" d="M85 93h30v30c0 10-30 10-30 0z"/><path class="arm" d="M45 132c-9 17-16 34-13 47 2 10 12 11 18 4l16-27zm109 0c9 17 16 34 13 47-2 10-12 11-18 4l-16-27z"/><path class="collar" d="m78 107 22 20 22-20 9 11-20 24H89l-20-24z"/></g>
+            <g class="character-head"><path class="ear" d="M57 63c-13-5-17 14-4 22l8 2zm86 0c13-5 17 14 4 22l-8 2z"/><ellipse class="skin" cx="100" cy="66" rx="44" ry="49"/><path class="hair" d="M57 61c-5-35 17-53 45-53 33 0 48 22 42 57l-7-14-9 8-8-19c-14 14-36 19-62 15l-1 18z"/><ellipse class="eye" cx="83" cy="70" rx="3.5" ry="5"/><ellipse class="eye" cx="117" cy="70" rx="3.5" ry="5"/><path class="blush" d="M68 84q8-5 16 0m32 0q8-5 16 0"/><path class="smile" d="M90 89q10 11 20 0"/></g>
+            <g class="floating-heart"><path d="M100 20C88 10 78 27 100 42c22-15 12-32 0-22z"/></g>
+          </svg>
+          <span class="character-caption">he's got a little crush</span>
+        </div>
+        <div class="character character--girl" aria-label="A girl waiting to see her match">
+          <div class="character-name">the girl</div>
+          <svg class="character-art" viewBox="0 0 200 260" role="img" aria-label="Cute cartoon girl">
+            <ellipse class="shadow" cx="100" cy="246" rx="61" ry="10"/>
+            <g class="character-body"><path class="legs" d="M68 191h27v40a14 14 0 0 1-27 0zm38 0h27v40a14 14 0 0 1-27 0z"/><path class="shoes" d="M64 225c-4 15 0 23 17 23h17v-9c-5-8-13-13-22-13zm39 14v9h17c17 0 21-8 17-23h-12c-9 0-17 5-22 14z"/><path class="dress" d="M81 109h38c19 8 29 25 29 50l18 39c4 9-2 17-11 17H45c-9 0-15-8-11-17l18-39c0-25 10-42 29-50z"/><path class="neck" d="M85 94h30v27c0 10-30 10-30 0z"/><path class="arm" d="M51 135c-9 17-16 34-13 47 2 10 12 11 18 4l16-27zm98 0c9 17 16 34 13 47-2 10-12 11-18 4l-16-27z"/><path class="collar collar--girl" d="m78 108 22 20 22-20 9 11-20 21H89l-20-21z"/></g>
+            <g class="character-head"><path class="hair-back" d="M53 74c-6-39 11-65 47-65s53 26 47 65l-2 67c0 13-8 23-20 25l-4-38H79l-4 38c-12-2-20-12-20-25z"/><path class="ear" d="M57 63c-13-5-17 14-4 22l8 2zm86 0c13-5 17 14 4 22l-8 2z"/><ellipse class="skin" cx="100" cy="66" rx="39" ry="47"/><path class="hair" d="M61 66c-4-33 11-55 40-55 30 0 43 22 38 55l-7-9-9 6-8-15c-13 12-31 17-53 13l-1 12z"/><ellipse class="eye" cx="84" cy="70" rx="3.5" ry="5"/><ellipse class="eye" cx="116" cy="70" rx="3.5" ry="5"/><path class="blush" d="M68 84q8-5 16 0m32 0q8-5 16 0"/><path class="smile" d="M90 89q10 11 20 0"/><path class="hair-bow" d="m132 21 17-12-2 20 17 11-22 3-10 17-5-20-20-6 20-3z"/></g>
+            <g class="floating-heart"><path d="M100 20C88 10 78 27 100 42c22-15 12-32 0-22z"/></g>
+          </svg>
+          <span class="character-caption">she's got butterflies</span>
+        </div>
+        <div class="card" id="calculator-card">
+          <div id="form-view">
+            <p class="card-kicker">LOVEBUG'S MATCH MACHINE</p>
+            <h2>Who do you ship?</h2>
+            <form id="love-form">
+              <label for="your-name">His name</label>
+              <div class="input-wrap"><input id="your-name" name="your-name" placeholder="e.g. Alex" autocomplete="off" maxlength="60" required aria-describedby="form-error"></div>
+              <div class="between" aria-hidden="true"><span></span><i>♥</i><span></span></div>
+              <label for="their-name">Her name</label>
+              <div class="input-wrap"><input id="their-name" name="their-name" placeholder="e.g. Jamie" autocomplete="off" maxlength="60" required aria-describedby="form-error"></div>
+              <p id="form-error" class="form-error" role="alert"></p>
+              <button class="primary-button" type="submit"><span>Calculate love!</span><span aria-hidden="true">♥</span></button>
+            </form>
+            <p class="privacy">Just for fun. Names stay right here on your device.</p>
+          </div>
+          <div id="result-view" hidden>
+            <p class="card-kicker">THE HEARTS HAVE SPOKEN</p>
+            <h2 id="couple-names" tabindex="-1"></h2>
+            <div class="score-heart" aria-hidden="true"><svg viewBox="0 0 220 190"><path d="M110 171C80 149 16 109 16 61C16 12 80 1 110 43C140 1 204 12 204 61C204 109 140 149 110 171Z"/></svg><div><span id="score">0</span><span class="percent">%</span></div></div>
+            <p id="result-title" class="result-title"></p>
+            <p id="result-description" class="result-description"></p>
+            <p id="result-announcement" class="sr-only" role="status" aria-live="polite"></p>
+            <button type="button" id="try-again" class="primary-button"><span>Try another pair</span><span aria-hidden="true">↻</span></button>
+            <button type="button" id="copy-result" class="text-button">Copy the result <span aria-hidden="true">↗</span></button>
+            <p id="copy-status" class="copy-status" role="status"></p>
+          </div>
+          <div class="celebration" aria-hidden="true"></div>
+        </div>
+      </div>
+      <p class="disclaimer">Real love is much more than a number. This is just a giggle!</p>
+    </section>
+  </main>
+  <noscript><p class="noscript">Please enable JavaScript to calculate your match.</p></noscript>
+</body>
+</html>
