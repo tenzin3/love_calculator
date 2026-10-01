@@ -4,6 +4,9 @@ A playful, animated love calculator inspired by the classic pen-and-paper name g
 
 **Website:** https://tenzin3.github.io/love_calculator/
 
+![Mobile screenshot](images/mobile.png)
+
+
 ## Web experience
 
 - Prayer flags fluttering on a string, Himalayan peaks, and a sky that warms up or clouds over with the result.
