@@ -8,6 +8,12 @@ test('matches known results from the original Python game', () => {
   assert.equal(calculateLove('Tenzin', 'Dolma'), 96);
 });
 
+test('Sonam Gonpo and Tenzin Chozin always score 0', () => {
+  assert.equal(calculateLove('Sonam Gonpo', 'Tenzin Chozin'), 0);
+  assert.equal(calculateLove('  sonam gonpo ', 'TENZIN CHOZIN'), 0);
+  assert.equal(getMood(0), 'heartbroken');
+});
+
 test('normalizes whitespace, case, and equivalent Unicode', () => {
   assert.equal(calculateLove(' ALICE\t', 'b ob\n'), 66);
   assert.equal(calculateLove('é', 'Sam'), calculateLove('é', 'Sam'));
