@@ -3,73 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff8f0">
-  <meta name="description" content="Put two names together and see what the love calculator says. Just for fun, with a little animated romance.">
-  <title>Lovebug — a cute little love calculator</title>
+  <meta name="theme-color" content="#f6e7c8">
+  <meta name="description" content="Put two names together under the prayer flags and see what the love calculator says. Just for fun, with a little Himalayan romance.">
+  <title>Tsewa — a Tibetan love calculator</title>
   <link rel="icon" href="./heart.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&family=Noto+Serif+Tibetan:wght@500;700&display=swap">
   <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./cute.css">
   <script type="module" src="./app.js"></script>
 </head>
-<body>
+<body data-mood="idle">
   <a class="skip-link" href="#calculator">Skip to calculator</a>
+
+  <!-- Scenery: sky, sun, mountains, prayer flags -->
+  <div class="scenery" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="sky sky--warm"></div>
+    <div class="sky sky--gloom"></div>
+    <div class="sun"></div>
+    <div class="drift-clouds"><span></span><span></span><span></span></div>
+    <svg class="mountains" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice">
+      <path class="ridge ridge--far" d="M0 250 L120 170 L190 205 L300 110 L380 160 L470 90 L560 170 L640 140 L740 60 L820 130 L900 100 L990 175 L1080 95 L1170 150 L1260 120 L1350 180 L1440 140 V360 H0Z"/>
+      <path class="snow" d="M300 110 L330 128 L312 126 L300 140 L288 127 L270 132Z M470 90 L500 112 L482 108 L470 122 L456 110 L440 114Z M740 60 L776 90 L756 84 L742 102 L726 88 L706 96Z M1080 95 L1108 116 L1092 112 L1080 126 L1066 113 L1050 118Z"/>
+      <path class="ridge ridge--mid" d="M0 300 L90 240 L170 270 L260 210 L350 255 L430 225 L520 280 L610 230 L700 265 L790 215 L880 260 L970 230 L1060 280 L1150 235 L1250 270 L1340 225 L1440 260 V360 H0Z"/>
+      <path class="ridge ridge--near" d="M0 330 Q180 290 360 318 T720 312 T1080 320 T1440 300 V360 H0Z"/>
+    </svg>
+  </div>
+  <div class="flags flags--top" aria-hidden="true"></div>
+
   <main class="love-page">
-    <header class="site-header"><a class="brand" href="./" aria-label="Lovebug home"><span aria-hidden="true">♥</span> lovebug!</a><span class="header-note">a tiny game for big crushes</span></header>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Tsewa home">
+        <svg class="knot" viewBox="-30 -30 60 60" aria-hidden="true"><g transform="rotate(45)"><rect x="-15" y="-15" width="30" height="30"/><path d="M-5 -15V15M5 -15V15M-15 -5H15M-15 5H15"/><path d="M-15 -5A7 7 0 1 1 -5 -15M5 -15A7 7 0 1 1 15 -5M15 5A7 7 0 1 1 5 15M-5 15A7 7 0 1 1 -15 5"/></g></svg>
+        <span>tsewa</span><span class="brand-tib" lang="bo">བརྩེ་བ</span>
+      </a>
+      <span class="header-note"><span lang="bo">བཀྲ་ཤིས་བདེ་ལེགས།</span> tashi delek</span>
+    </header>
+
     <section class="calculator" id="calculator" aria-labelledby="page-title">
-      <p class="eyebrow">THE CUTEST LITTLE LOVE TEST</p>
-      <h1 id="page-title">Are they a <span>match?</span></h1>
-      <p class="page-copy">Pick two names. Let the butterflies decide!</p>
+      <p class="eyebrow">A love game from the roof of the world</p>
+      <h1 id="page-title">Are your names <em>tied</em> together?</h1>
+      <p class="page-copy">Write two names on the wind. The prayer flags will carry the answer.</p>
+
       <div class="match-stage" id="match-stage" data-mood="idle">
-        <div class="character character--boy" aria-label="A boy waiting to see his match">
-          <div class="character-name">the boy</div>
-          <svg class="character-art" viewBox="0 0 200 260" role="img" aria-label="Cute cartoon boy">
-            <ellipse class="shadow" cx="100" cy="246" rx="61" ry="10"/>
-            <g class="character-body"><path class="legs" d="M67 191h28v42a14 14 0 0 1-28 0zm39 0h28v42a14 14 0 0 1-28 0z"/><path class="shoes" d="M63 226c-4 15 0 22 17 22h17v-9c-5-8-13-13-22-13zm40 13v9h17c17 0 21-7 17-22h-12c-9 0-17 5-22 13z"/><path class="shirt" d="M62 112c-18 7-28 24-28 48v39c0 8 6 13 14 13h104c8 0 14-5 14-13v-39c0-24-10-41-28-48l-18-8H80z"/><path class="neck" d="M85 93h30v30c0 10-30 10-30 0z"/><path class="arm" d="M45 132c-9 17-16 34-13 47 2 10 12 11 18 4l16-27zm109 0c9 17 16 34 13 47-2 10-12 11-18 4l-16-27z"/><path class="collar" d="m78 107 22 20 22-20 9 11-20 24H89l-20-24z"/></g>
-            <g class="character-head"><path class="ear" d="M57 63c-13-5-17 14-4 22l8 2zm86 0c13-5 17 14 4 22l-8 2z"/><ellipse class="skin" cx="100" cy="66" rx="44" ry="49"/><path class="hair" d="M57 61c-5-35 17-53 45-53 33 0 48 22 42 57l-7-14-9 8-8-19c-14 14-36 19-62 15l-1 18z"/><ellipse class="eye" cx="83" cy="70" rx="3.5" ry="5"/><ellipse class="eye" cx="117" cy="70" rx="3.5" ry="5"/><path class="blush" d="M68 84q8-5 16 0m32 0q8-5 16 0"/><path class="smile" d="M90 89q10 11 20 0"/></g>
-            <g class="floating-heart"><path d="M100 20C88 10 78 27 100 42c22-15 12-32 0-22z"/></g>
-          </svg>
-          <span class="character-caption">he's got a little crush</span>
-        </div>
-        <div class="character character--girl" aria-label="A girl waiting to see her match">
-          <div class="character-name">the girl</div>
-          <svg class="character-art" viewBox="0 0 200 260" role="img" aria-label="Cute cartoon girl">
-            <ellipse class="shadow" cx="100" cy="246" rx="61" ry="10"/>
-            <g class="character-body"><path class="legs" d="M68 191h27v40a14 14 0 0 1-27 0zm38 0h27v40a14 14 0 0 1-27 0z"/><path class="shoes" d="M64 225c-4 15 0 23 17 23h17v-9c-5-8-13-13-22-13zm39 14v9h17c17 0 21-8 17-23h-12c-9 0-17 5-22 14z"/><path class="dress" d="M81 109h38c19 8 29 25 29 50l18 39c4 9-2 17-11 17H45c-9 0-15-8-11-17l18-39c0-25 10-42 29-50z"/><path class="neck" d="M85 94h30v27c0 10-30 10-30 0z"/><path class="arm" d="M51 135c-9 17-16 34-13 47 2 10 12 11 18 4l16-27zm98 0c9 17 16 34 13 47-2 10-12 11-18 4l-16-27z"/><path class="collar collar--girl" d="m78 108 22 20 22-20 9 11-20 21H89l-20-21z"/></g>
-            <g class="character-head"><path class="hair-back" d="M53 74c-6-39 11-65 47-65s53 26 47 65l-2 67c0 13-8 23-20 25l-4-38H79l-4 38c-12-2-20-12-20-25z"/><path class="ear" d="M57 63c-13-5-17 14-4 22l8 2zm86 0c13-5 17 14 4 22l-8 2z"/><ellipse class="skin" cx="100" cy="66" rx="39" ry="47"/><path class="hair" d="M61 66c-4-33 11-55 40-55 30 0 43 22 38 55l-7-9-9 6-8-15c-13 12-31 17-53 13l-1 12z"/><ellipse class="eye" cx="84" cy="70" rx="3.5" ry="5"/><ellipse class="eye" cx="116" cy="70" rx="3.5" ry="5"/><path class="blush" d="M68 84q8-5 16 0m32 0q8-5 16 0"/><path class="smile" d="M90 89q10 11 20 0"/><path class="hair-bow" d="m132 21 17-12-2 20 17 11-22 3-10 17-5-20-20-6 20-3z"/></g>
-            <g class="floating-heart"><path d="M100 20C88 10 78 27 100 42c22-15 12-32 0-22z"/></g>
-          </svg>
-          <span class="character-caption">she's got butterflies</span>
-        </div>
-        <div class="card" id="calculator-card">
-          <div id="form-view">
-            <p class="card-kicker">LOVEBUG'S MATCH MACHINE</p>
-            <h2>Who do you ship?</h2>
-            <form id="love-form">
-              <label for="your-name">His name</label>
-              <div class="input-wrap"><input id="your-name" name="your-name" placeholder="e.g. Alex" autocomplete="off" maxlength="60" required aria-describedby="form-error"></div>
-              <div class="between" aria-hidden="true"><span></span><i>♥</i><span></span></div>
-              <label for="their-name">Her name</label>
-              <div class="input-wrap"><input id="their-name" name="their-name" placeholder="e.g. Jamie" autocomplete="off" maxlength="60" required aria-describedby="form-error"></div>
-              <p id="form-error" class="form-error" role="alert"></p>
-              <button class="primary-button" type="submit"><span>Calculate love!</span><span aria-hidden="true">♥</span></button>
-            </form>
-            <p class="privacy">Just for fun. Names stay right here on your device.</p>
+
+        <!-- HIM -->
+        <figure class="character character--boy" style="--dir:1">
+          <div class="bubble" aria-hidden="true"></div>
+          <div class="fx" aria-hidden="true">
+            <div class="cloud"><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="float-heart"></span><span class="float-heart"></span><span class="float-heart"></span><span class="float-heart"></span>
           </div>
+          <svg class="char-svg" viewBox="0 0 200 280" role="img" aria-label="A young Tibetan man in a blue chuba">
+            <ellipse class="shadow" cx="100" cy="268" rx="58" ry="8"/>
+            <g class="figure">
+              <g class="boots"><rect x="70" y="226" width="25" height="38" rx="7"/><rect x="105" y="226" width="25" height="38" rx="7"/><path class="boot-band" d="M70 238h25M105 238h25"/></g>
+              <g class="arm arm--l"><path class="sleeve" d="M68 122Q50 128 46 160L43 196Q50 206 60 198L63 160Z"/><circle class="skin" cx="51" cy="202" r="8"/></g>
+              <path class="robe" d="M64 120Q100 106 136 120L150 232Q100 244 50 232Z"/>
+              <path class="shirt" d="M86 113L100 134L114 113Z"/>
+              <path class="trim" d="M82 116L124 186M53 229Q100 240 147 229"/>
+              <path class="sash" d="M57 176Q100 185 143 176L144 189Q100 198 56 189Z"/>
+              <path class="sash-tail" d="M126 188l8 22-9-3-5 6-2-24z"/>
+              <g class="arm arm--r"><path class="sleeve" d="M132 122Q150 128 154 160L157 196Q150 206 140 198L137 160Z"/><circle class="skin" cx="149" cy="202" r="8"/></g>
+              <g class="head">
+                <rect class="skin" x="90" y="98" width="20" height="20"/>
+                <circle class="skin" cx="58" cy="74" r="9"/><circle class="skin" cx="142" cy="74" r="9"/>
+                <ellipse class="skin" cx="100" cy="70" rx="42" ry="46"/>
+                <path class="hair" d="M58 70C52 30 76 16 100 16C126 16 150 30 142 70C138 54 130 44 118 41C104 50 82 51 66 47C61 54 59 62 58 70Z"/>
+                <ellipse class="cheek" cx="74" cy="90" rx="9" ry="5.5"/><ellipse class="cheek" cx="126" cy="90" rx="9" ry="5.5"/>
+                <path class="brow brow--l" d="M73 59q9-5 18 0"/><path class="brow brow--r" d="M109 59q9-5 18 0"/>
+                <g class="gaze"><g class="eyes-open"><ellipse cx="82" cy="75" rx="4.4" ry="6"/><ellipse cx="118" cy="75" rx="4.4" ry="6"/><circle class="glint" cx="83.5" cy="72.5" r="1.6"/><circle class="glint" cx="119.5" cy="72.5" r="1.6"/></g></g>
+                <path class="eyes-happy" d="M75 77q7-9 14 0M111 77q7-9 14 0"/>
+                <path class="eyes-closed" d="M75 74q7 6 14 0M111 74q7 6 14 0"/>
+                <path class="tear tear--l" d="M80 84q-4 6 0 9q4-3 0-9z"/><path class="tear tear--r" d="M120 84q-4 6 0 9q4-3 0-9z"/>
+                <path class="mouth m-smile" d="M90 96q10 9 20 0"/>
+                <path class="mouth-fill m-grin" d="M87 94q13 0 26 0q-2 14-13 14q-11 0-13-14z"/>
+                <ellipse class="mouth-fill m-o" cx="100" cy="99" rx="4.5" ry="5.5"/>
+                <path class="mouth m-frown" d="M90 102q10-9 20 0"/>
+              </g>
+            </g>
+          </svg>
+          <figcaption class="character-name">him</figcaption>
+        </figure>
+
+        <!-- THE CARD -->
+        <div class="card" id="calculator-card">
+          <div class="emblem" aria-hidden="true">
+            <svg viewBox="0 0 120 90">
+              <g class="lotus"><path d="M60 82C40 80 22 70 14 56C30 56 44 62 52 72Z"/><path d="M60 82C80 80 98 70 106 56C90 56 76 62 68 72Z"/><path d="M60 84C46 76 38 62 40 46C52 52 58 64 60 76C62 64 68 52 80 46C82 62 74 76 60 84Z"/></g>
+              <g class="emblem-heart"><path class="heart-whole" d="M60 30C52 18 34 20 34 36C34 50 50 58 60 66C70 58 86 50 86 36C86 20 68 18 60 30Z"/><path class="half half--l" d="M60 30C52 18 34 20 34 36C34 50 50 58 60 66L56 52L62 44L57 36Z"/><path class="half half--r" d="M60 30C68 18 86 20 86 36C86 50 70 58 60 66L56 52L62 44L57 36Z"/></g>
+            </svg>
+          </div>
+
+          <div id="form-view">
+            <p class="card-kicker">Lungta · the wind horse asks</p>
+            <h2>Whose names go together?</h2>
+            <form id="love-form" novalidate>
+              <label for="your-name">His name</label>
+              <input id="your-name" name="your-name" placeholder="e.g. Tenzin" autocomplete="off" maxlength="60" required aria-describedby="form-error">
+              <div class="between" aria-hidden="true"><span></span><svg viewBox="-30 -30 60 60" class="knot knot--small"><g transform="rotate(45)"><rect x="-15" y="-15" width="30" height="30"/><path d="M-5 -15V15M5 -15V15M-15 -5H15M-15 5H15"/><path d="M-15 -5A7 7 0 1 1 -5 -15M5 -15A7 7 0 1 1 15 -5M15 5A7 7 0 1 1 5 15M-5 15A7 7 0 1 1 -15 5"/></g></svg><span></span></div>
+              <label for="their-name">Her name</label>
+              <input id="their-name" name="their-name" placeholder="e.g. Dolma" autocomplete="off" maxlength="60" required aria-describedby="form-error">
+              <p id="form-error" class="form-error" role="alert"></p>
+              <button class="primary-button" type="submit"><span>Send it on the wind</span></button>
+            </form>
+            <p class="privacy">Just for fun. Names never leave your device.</p>
+          </div>
+
           <div id="result-view" hidden>
-            <p class="card-kicker">THE HEARTS HAVE SPOKEN</p>
+            <p class="card-kicker">The flags have spoken</p>
             <h2 id="couple-names" tabindex="-1"></h2>
-            <div class="score-heart" aria-hidden="true"><svg viewBox="0 0 220 190"><path d="M110 171C80 149 16 109 16 61C16 12 80 1 110 43C140 1 204 12 204 61C204 109 140 149 110 171Z"/></svg><div><span id="score">0</span><span class="percent">%</span></div></div>
+            <div class="gauge" aria-hidden="true">
+              <svg viewBox="0 0 220 220">
+                <defs>
+                  <linearGradient id="gauge-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0b443"/><stop offset="1" stop-color="#a3242c"/></linearGradient>
+                </defs>
+                <g class="petals"></g>
+                <circle class="gauge-track" cx="110" cy="110" r="78"/>
+                <circle class="gauge-fill" cx="110" cy="110" r="78" pathLength="100"/>
+              </svg>
+              <div class="gauge-text"><div><span id="score">0</span><span class="percent">%</span></div><span id="score-tib" lang="bo"></span></div>
+            </div>
             <p id="result-title" class="result-title"></p>
             <p id="result-description" class="result-description"></p>
             <p id="result-announcement" class="sr-only" role="status" aria-live="polite"></p>
-            <button type="button" id="try-again" class="primary-button"><span>Try another pair</span><span aria-hidden="true">↻</span></button>
-            <button type="button" id="copy-result" class="text-button">Copy the result <span aria-hidden="true">↗</span></button>
-            <p id="copy-status" class="copy-status" role="status"></p>
+            <button type="button" id="try-again" class="primary-button"><span>Try another pair</span></button>
           </div>
           <div class="celebration" aria-hidden="true"></div>
         </div>
+
+        <!-- HER -->
+        <figure class="character character--girl" style="--dir:-1">
+          <div class="bubble" aria-hidden="true"></div>
+          <div class="fx" aria-hidden="true">
+            <div class="cloud"><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="float-heart"></span><span class="float-heart"></span><span class="float-heart"></span><span class="float-heart"></span>
+          </div>
+          <svg class="char-svg" viewBox="0 0 200 280" role="img" aria-label="A young Tibetan woman in a maroon chuba and striped pangden apron">
+            <defs>
+              <linearGradient id="pangden" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#c8352e"/><stop offset=".125" stop-color="#c8352e"/>
+                <stop offset=".125" stop-color="#f1c232"/><stop offset=".25" stop-color="#f1c232"/>
+                <stop offset=".25" stop-color="#3a8a4f"/><stop offset=".375" stop-color="#3a8a4f"/>
+                <stop offset=".375" stop-color="#2e5fa8"/><stop offset=".5" stop-color="#2e5fa8"/>
+                <stop offset=".5" stop-color="#f7f1e3"/><stop offset=".625" stop-color="#f7f1e3"/>
+                <stop offset=".625" stop-color="#e2733a"/><stop offset=".75" stop-color="#e2733a"/>
+                <stop offset=".75" stop-color="#3fa7a0"/><stop offset=".875" stop-color="#3fa7a0"/>
+                <stop offset=".875" stop-color="#c8352e"/><stop offset="1" stop-color="#c8352e"/>
+              </linearGradient>
+            </defs>
+            <ellipse class="shadow" cx="100" cy="268" rx="58" ry="8"/>
+            <g class="figure">
+              <g class="boots"><rect x="72" y="230" width="23" height="34" rx="7"/><rect x="105" y="230" width="23" height="34" rx="7"/><path class="boot-band" d="M72 241h23M105 241h23"/></g>
+              <path class="braid" d="M60 80C54 120 58 150 62 176" /><path class="braid" d="M140 80C146 120 142 150 138 176"/>
+              <circle class="bead bead--t" cx="62" cy="178" r="5"/><circle class="bead bead--t" cx="138" cy="178" r="5"/>
+              <g class="arm arm--l"><path class="sleeve" d="M70 122Q52 128 48 160L45 194Q52 204 62 196L65 160Z"/><circle class="skin" cx="53" cy="200" r="7.5"/></g>
+              <path class="robe" d="M66 120Q100 106 134 120L152 238Q100 248 48 238Z"/>
+              <path class="shirt" d="M86 113L100 136L114 113Z"/>
+              <path class="sash" d="M60 174Q100 182 140 174L141 184Q100 192 59 184Z"/>
+              <path class="apron" d="M76 186Q100 191 124 186L128 240Q100 246 72 240Z"/>
+              <g class="arm arm--r"><path class="sleeve" d="M130 122Q148 128 152 160L155 194Q148 204 138 196L135 160Z"/><circle class="skin" cx="147" cy="200" r="7.5"/></g>
+              <g class="head">
+                <rect class="skin" x="91" y="98" width="18" height="20"/>
+                <path class="hair" d="M57 76C50 34 74 14 100 14C126 14 150 34 143 76L136 104C130 82 128 70 128 60L100 40L72 60C72 70 70 82 64 104Z"/>
+                <ellipse class="skin" cx="100" cy="70" rx="38" ry="44"/>
+                <path class="hair" d="M62 68C58 32 78 18 100 18C122 18 142 32 138 68C134 50 120 38 102 34L100 30C86 38 70 48 62 68Z"/>
+                <g class="ornament"><circle class="bead bead--t" cx="100" cy="22" r="6"/><circle class="bead bead--c" cx="88" cy="25" r="4"/><circle class="bead bead--c" cx="112" cy="25" r="4"/></g>
+                <ellipse class="cheek" cx="76" cy="89" rx="8.5" ry="5.5"/><ellipse class="cheek" cx="124" cy="89" rx="8.5" ry="5.5"/>
+                <path class="brow brow--l" d="M75 59q8-4 16 0"/><path class="brow brow--r" d="M109 59q8-4 16 0"/>
+                <g class="gaze"><g class="eyes-open"><ellipse cx="84" cy="74" rx="4.4" ry="6"/><ellipse cx="116" cy="74" rx="4.4" ry="6"/><circle class="glint" cx="85.5" cy="71.5" r="1.6"/><circle class="glint" cx="117.5" cy="71.5" r="1.6"/><path class="lash" d="M78 70l-4-3M122 70l4-3"/></g></g>
+                <path class="eyes-happy" d="M77 76q7-9 14 0M109 76q7-9 14 0"/>
+                <path class="eyes-closed" d="M77 73q7 6 14 0M109 73q7 6 14 0"/>
+                <path class="tear tear--l" d="M82 83q-4 6 0 9q4-3 0-9z"/><path class="tear tear--r" d="M118 83q-4 6 0 9q4-3 0-9z"/>
+                <path class="mouth m-smile" d="M91 95q9 8 18 0"/>
+                <path class="mouth-fill m-grin" d="M88 93q12 0 24 0q-2 13-12 13q-10 0-12-13z"/>
+                <ellipse class="mouth-fill m-o" cx="100" cy="98" rx="4" ry="5"/>
+                <path class="mouth m-frown" d="M91 101q9-8 18 0"/>
+              </g>
+            </g>
+          </svg>
+          <figcaption class="character-name">her</figcaption>
+        </figure>
       </div>
-      <p class="disclaimer">Real love is much more than a number. This is just a giggle!</p>
+
+      <p class="disclaimer">Real love is much more than a number — this is just for a laugh.</p>
     </section>
   </main>
   <noscript><p class="noscript">Please enable JavaScript to calculate your match.</p></noscript>

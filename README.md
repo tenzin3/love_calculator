@@ -1,16 +1,18 @@
-# love, maybe. ♡
+# tsewa བརྩེ་བ — a Tibetan love calculator
 
-A romantic, animated love calculator inspired by the classic pen-and-paper name game.
+A playful, animated love calculator inspired by the classic pen-and-paper name game, dressed in Tibetan style.
 
 **Website:** https://tenzin3.github.io/love_calculator/
 
 ## Web experience
 
-- Blush colors, editorial typography, floating hearts, and a hand-drawn flourish.
-- Animated heart-shaped score reveal with a celebratory heart burst.
-- Mobile layouts, keyboard access, screen-reader announcements, and reduced-motion support.
-- Copyable love notes. Names are processed locally and are never saved or submitted.
-- No framework, build step, or backend. Google Fonts is optional; system fonts are the fallback.
+- Prayer flags fluttering on a string, Himalayan peaks, and a sky that warms up or clouds over with the result.
+- Two characters in traditional dress — him in a blue chuba with a saffron sash, her in a maroon chuba with a striped pangden apron, braids and turquoise.
+- They react to the score in five ways: **85+** jump for joy with arms up and hearts, **65–84** hop and wave, **45–64** sway shyly and blush, **25–44** droop under a little cloud with a tear, **under 25** turn away crying in the rain while the lotus heart cracks in two.
+- Their eyes follow your pointer while you wait, the one whose name you're typing leans in and blushes, and they nervously bounce while the score is calculated.
+- The score fills a lotus ring and is also shown in Tibetan numerals; joyful scores send a burst of tiny prayer flags.
+- Mobile layouts, keyboard access, screen-reader announcements, and reduced-motion support. Names never leave the device.
+- No framework, build step, or backend.
 
 ## Run locally
 
